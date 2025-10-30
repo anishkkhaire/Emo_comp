@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eunoia - Your AI Emotional Companion</title>
+    <meta name="description" content="An empathetic AI companion that understands your emotions, provides support, and helps track your emotional wellbeing">
+    <meta name="keywords" content="AI companion, emotional support, mood tracker, mental health, wellbeing">
+    
+    <meta property="og:title" content="Eunoia - Your AI Emotional Companion">
+    <meta property="og:description" content="An empathetic AI companion that understands your emotions and provides support">
+    
+    <meta name="twitter:title" content="Eunoia - Your AI Emotional Companion">
+    <meta name="twitter:description" content="An empathetic AI companion that understands your emotions and provides support">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --background-color: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --hover-bg: #f9fafb;
+        }
+    }
+
+    @layer base {
+        body {
+            @apply bg-[var(--background-color)] text-[var(--text-primary)] font-sans antialiased;
+        }
+    }
+
+    @layer components {
+        .btn-primary {
+            @apply bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-3 rounded-xl font-medium shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 hover:scale-105 transition-all duration-300;
+        }
+        
+        .card {
+            @apply bg-[var(--card-bg)] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300;
+        }
+        
+        .input-field {
+            @apply w-full px-5 py-3.5 border-2 border-[var(--border-color)] rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-all duration-200 bg-white;
+        }
+        
+        .message-bubble {
+            @apply rounded-3xl px-5 py-3.5 shadow-md transition-all duration-300 hover:shadow-lg;
+        }
+    }
+
+    @layer utilities {
+        .gradient-bg {
+            @apply bg-gradient-to-br from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)];
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.4s ease-out;
+        }
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+        from { 
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    </style>
+
+    <script>
+        const ChartJS = window.Chart;
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/LampContainer.js"></script>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/ClearChatButton.js"></script>
+    <script type="text/babel" src="components/ChatMessage.js"></script>
+    <script type="text/babel" src="components/ChatInput.js"></script>
+    <script type="text/babel" src="components/EmotionBadge.js"></script>
+    <script type="text/babel" src="components/TypingIndicator.js"></script>
+    <script type="text/babel" src="components/SuggestionCard.js"></script>
+    <script type="text/babel" src="utils/emotionAgent.js"></script>
+    <script type="text/babel" src="utils/chatAgent.js"></script>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>

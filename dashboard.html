@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Eunoia</title>
+    <meta name="description" content="Track your emotional wellbeing and see your progress over time">
+    <meta name="keywords" content="mood tracker, emotional analytics, mental health dashboard">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --background-color: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+            --hover-bg: #f9fafb;
+        }
+    }
+
+    @layer base {
+        body {
+            @apply bg-[var(--background-color)] text-[var(--text-primary)] font-sans antialiased;
+        }
+    }
+
+    @layer components {
+        .card {
+            @apply bg-[var(--card-bg)] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300;
+        }
+    }
+
+    @layer utilities {
+        .gradient-bg {
+            @apply bg-gradient-to-br from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)];
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    </style>
+
+    <script>
+        const ChartJS = window.Chart;
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/MoodChart.js"></script>
+    <script type="text/babel" src="components/StatsCard.js"></script>
+    <script type="text/babel" src="components/ReflectionCard.js"></script>
+    <script type="text/babel" src="dashboard-app.js"></script>
+</body>
+</html>
